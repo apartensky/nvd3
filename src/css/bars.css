@@ -24,6 +24,7 @@
 
 .nvd3 .nv-multibar .nv-groups rect,
 .nvd3 .nv-multibarHorizontal .nv-groups rect,
+.nvd3 .nv-dotPlot .nv-groups circle,
 .nvd3 .nv-discretebar .nv-groups rect {
     stroke-opacity: 0;
 
@@ -34,12 +35,14 @@
 
 .nvd3 .nv-multibar .nv-groups rect:hover,
 .nvd3 .nv-multibarHorizontal .nv-groups rect:hover,
+.nvd3 .nv-dotPlot .nv-groups circle:hover,
 .nvd3 .nv-candlestickBar .nv-ticks rect:hover,
 .nvd3 .nv-discretebar .nv-groups rect:hover {
     fill-opacity: 1;
 }
 
 .nvd3 .nv-discretebar .nv-groups text,
+.nvd3 .nv-dotPlot .nv-groups text,
 .nvd3 .nv-multibarHorizontal .nv-groups text {
     font-weight: bold;
     fill: rgba(0,0,0,1);
