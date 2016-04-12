@@ -276,7 +276,7 @@ nv.models.dotPlot = function() {
                     .style('fill', function(d,i,j) { return d3.rgb(barColor(d,i)).darker(  disabled.map(function(d,i) { return i }).filter(function(d,i){ return !disabled[i]  })[j]   ).toString(); })
                     .style('stroke', function(d,i,j) { return d3.rgb(barColor(d,i)).darker(  disabled.map(function(d,i) { return i }).filter(function(d,i){ return !disabled[i]  })[j]   ).toString(); });
             }
-
+            
             if (stacked)
                 bars.watchTransition(renderWatch, 'dotPlot: bars')
                     .attr('transform', function(d,i) {
@@ -305,7 +305,8 @@ nv.models.dotPlot = function() {
                     })
                     .select('circle')
                     .attr('cx', function(d,i) {
-                        return Math.max(Math.abs(y(getY(d,i)) - y(0)),1) || 0
+                        // return Math.max(Math.abs(y(getY(d,i)) - y(0)),1) || 0
+                        return y(getY(d, i)) || 0;
                     })
                     .attr('r', function(d, i) {
                         return z(getZ(d, i));
@@ -340,11 +341,13 @@ nv.models.dotPlot = function() {
         height:  {get: function(){return height;}, set: function(_){height=_;}},
         x:       {get: function(){return getX;}, set: function(_){getX=_;}},
         y:       {get: function(){return getY;}, set: function(_){getY=_;}},
+        z:       {get: function(){return getZ;}, set: function(_){getZ=_;}},
         yErr:       {get: function(){return getYerr;}, set: function(_){getYerr=_;}},
         xScale:  {get: function(){return x;}, set: function(_){x=_;}},
         yScale:  {get: function(){return y;}, set: function(_){y=_;}},
         xDomain: {get: function(){return xDomain;}, set: function(_){xDomain=_;}},
         yDomain: {get: function(){return yDomain;}, set: function(_){yDomain=_;}},
+        zDomain: {get: function(){return zDomain;}, set: function(_){zDomain=_;}},
         xRange:  {get: function(){return xRange;}, set: function(_){xRange=_;}},
         yRange:  {get: function(){return yRange;}, set: function(_){yRange=_;}},
         forceY:  {get: function(){return forceY;}, set: function(_){forceY=_;}},
